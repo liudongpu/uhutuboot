@@ -1,6 +1,7 @@
 
  
 import { BootJobScan } from '../job/scan';
+import { BootJobProject } from '../job/project';
 
 
 export class BootLoadTask {
@@ -16,6 +17,12 @@ export class BootLoadTask {
         cb();
     }
 
+    //执行项目结构
+    taskProject(cb: Function): void {
+        
+        BootJobProject.Instance.taskExec();
+        cb();
+    }
 
  
 

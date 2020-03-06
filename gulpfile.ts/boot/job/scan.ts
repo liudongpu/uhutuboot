@@ -44,6 +44,7 @@ export class BootJobScan extends BootRootTask{
 
                 let oProjectInfo:IBootGuideProjectInfo={
                     configFilePath:sPath,
+                    projectPath:BootUtilIo.Instance.parentPath(sPath),
                     projectConfig:oProjectConfig
                 }
 
@@ -52,12 +53,20 @@ export class BootJobScan extends BootRootTask{
             }
 
 
-        })
+        });
+
+
         
-        this.logger.debug(aDir);
+         this.logger.debug(JSON.stringify(oConfig,null,"  "));
 
          
     }
+
+
+
+
+
+
 
     
 

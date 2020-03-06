@@ -13,6 +13,9 @@ export interface IBootGuideProjectInfo{
 
     //配置文件路径地址
     configFilePath:string
+
+    projectPath:string
+
     projectConfig:IBootGuideProjectConfig
 
 }
