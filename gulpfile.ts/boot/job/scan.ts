@@ -10,8 +10,6 @@ export class BootJobScan extends BootRootTask{
 
     private static _instance = new BootJobScan();
     public static get Instance() { return this._instance };
-
-
     private logger = getLogger(BootJobScan.name);
 
     taskExec(): void {
