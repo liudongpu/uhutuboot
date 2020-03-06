@@ -3,6 +3,7 @@ import { BootGuideConfig } from "../guide/config";
 
 import { getLogger } from 'log4js';
 import { BootUtilIo } from "../utils/io";
+import { IBootGuideProjectConfig, IBootGuideProjectInfo } from "../face/guide";
 
 export class BootJobScan extends BootRootTask{
     
@@ -36,7 +37,20 @@ export class BootJobScan extends BootRootTask{
             let sPath=BootUtilIo.Instance.pathJoin(sParentDir,fItem,oConfig.bootProjectConfigFile);
 
             if(BootUtilIo.Instance.flagExist(sPath)){
-                oConfig.bootProjectPaths.push(sPath);
+
+                let oProjectConfig:IBootGuideProjectConfig={
+
+                    flagEnableMpass:true
+                };
+
+
+                let oProjectInfo:IBootGuideProjectInfo={
+                    configFilePath:sPath,
+                    projectConfig:oProjectConfig
+                }
+
+
+                oConfig.bootProjects.push(oProjectInfo);
             }
 
 

@@ -1,6 +1,6 @@
-import { IBootFaceTask } from "../face/task";
+import { IBootRootTask } from "../face/root";
 
-export abstract class BootRootTask implements IBootFaceTask{
+export abstract class BootRootTask implements IBootRootTask{
      
     abstract taskExec():void;
 

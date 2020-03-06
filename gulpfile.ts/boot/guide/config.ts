@@ -1,16 +1,12 @@
 
 import { configure, getLogger, levels } from 'log4js';
+import { IBootGuideConfig } from '../face/guide';
 
-interface IBootConfig{
-    bootCwd:string
-    bootProjectPaths:string[]
-    bootProjectConfigFile:string
-}
-
-let oConfig:IBootConfig={
+ 
+let oConfig:IBootGuideConfig={
     bootCwd:"",
-    bootProjectPaths:[],
-    bootProjectConfigFile:"uhutuboot.config"
+    bootProjects:[],
+    bootProjectConfigFile:"uhutuboot.json"
 
 }
 
