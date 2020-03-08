@@ -5,6 +5,7 @@ import { getLogger } from 'log4js';
 import { BootUtilIo } from "../utils/io";
 import { IBootGuideProjectConfig, IBootGuideProjectInfo } from "../face/guide";
 import { BootSuperMpass } from "../super/mpass";
+import { BootSuperSync } from "../super/sync";
 
 export class BootJobProject extends BootRootTask{
     taskExec(): void {
@@ -12,7 +13,7 @@ export class BootJobProject extends BootRootTask{
         let oConfig=BootGuideConfig.Instance.upConfig();
 
         oConfig.bootProjects.forEach(fItem=>{
-            this.logger.debug("xxx")
+            
             this.refreshProject(fItem);
         })
 
@@ -23,6 +24,11 @@ export class BootJobProject extends BootRootTask{
 
 
     refreshProject(project:IBootGuideProjectInfo){
+
+
+         
+
+        BootSuperSync.Instance.start(project);
 
         if(project.projectConfig.flagEnableMpass){
 

@@ -38,7 +38,7 @@ export class BootJobScan extends BootRootTask{
 
                 let oProjectConfig:IBootGuideProjectConfig={
 
-                    flagEnableMpass:true
+                    flagEnableMpass:false
                 };
 
 

@@ -62,6 +62,31 @@ export class BootUtilIo {
         fs.createReadStream(sSourcePath).pipe(fs.createWriteStream(sTargetPath));
     }
 
+
+
+    copyDir(src:string,dst:string){
+        //this.mkdir(path.dirname(dst));
+        let paths = fs.readdirSync(src); //同步读取当前目录
+        paths.forEach(function(sPath){
+            var _src=path.join(src,sPath)  ;
+            var _dst=path.join(dst,sPath);
+            fs.stat(_src,function(err,stats){  //stats  该对象 包含文件属性
+                if(err)throw err;
+                if(stats.isFile()){ //如果是个文件则拷贝 
+                    let  readable=fs.createReadStream(_src);//创建读取流
+                    BootUtilIo.Instance.mkdir(path.dirname(_dst));
+                    let  writable=fs.createWriteStream(_dst);//创建写入流
+                    readable.pipe(writable);
+                }else if(stats.isDirectory()){ //是目录则 递归 
+                     
+                    BootUtilIo.Instance.copyDir(_src,_dst);
+                }
+            });
+        });
+    }
+   
+
+
     //查找目录下的所有一级文件夹
     listDirPath(sPath:string):string[]{
         var aList:string[] = [];

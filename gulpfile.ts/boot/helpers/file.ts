@@ -28,8 +28,8 @@ export class BootHelperFile{
             BootUtilIo.Instance.upRowSeq()+aInfo.join(BootUtilIo.Instance.upRowSeq())
         
         ,sAfter);
-        this.logger.debug(sNewInfo);
-        //BootUtilIo.Instance.writeFile(sFileName,sNewInfo);
+        //this.logger.debug(sNewInfo);
+        BootUtilIo.Instance.writeFile(sFileName,sNewInfo);
 
     }
 

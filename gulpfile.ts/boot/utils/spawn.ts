@@ -1,15 +1,18 @@
 "use strict";
 import childProcess = require("child_process");
-import assignDeep = require("assign-deep");
-import inquirer = require('inquirer');
+ 
 
 
 interface IHelperSpawSyncOption {
     cwd: string
-    stdio?: string
+    stdio?: 'inherit'
+    encoding?: BufferEncoding;
 }
 
-class MutilsHelper {
+export class BootUtilSpawn {
+
+    private static _instance = new BootUtilSpawn();
+    public static get Instance() { return this._instance };
 
     /**
      * 同步执行命令
@@ -29,7 +32,7 @@ class MutilsHelper {
 
             //process.exit(result.status);
 
-            this.exitProcess(result.status, result.stderr ? result.stderr : 'spawn error "' + sCommand + ' "');
+            //this.exitProcess(result.status, result.stderr ? result.stderr : 'spawn error "' + sCommand + ' "');
         } else {
             if (result.stdout) {
                 process.stdout.write(result.stdout);
@@ -55,9 +58,7 @@ class MutilsHelper {
         childProcess.spawn(sCommand, aArgs, oOption);
     }
 
-    deepAssign(oTarget, oSource) {
-        return assignDeep({}, oTarget, oSource);
-    }
+     
 
     exitProcess(iState: number, oError: string | Buffer) {
 
@@ -108,5 +109,4 @@ class MutilsHelper {
 };
 
 
-
-export =new MutilsHelper();
+ 

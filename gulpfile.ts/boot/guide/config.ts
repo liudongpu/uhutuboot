@@ -6,7 +6,7 @@ import { IBootGuideConfig } from '../face/guide';
 let oConfig:IBootGuideConfig={
     bootCwd:"",
     bootProjects:[],
-    bootProjectConfigFile:"uhutuboot.json"
+    bootProjectConfigFile:"uhutuboot-project.json"
 
 }
 
