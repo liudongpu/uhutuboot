@@ -6,6 +6,7 @@ import { BootUtilIo } from "../utils/io";
 import { IBootGuideProjectConfig, IBootGuideProjectInfo } from "../face/guide";
 import { BootSuperMpass } from "../super/mpass";
 import { BootSuperSync } from "../super/sync";
+import { BootSuperReact } from "../super/react";
 
 export class BootJobProject extends BootRootTask{
     taskExec(): void {
@@ -26,13 +27,21 @@ export class BootJobProject extends BootRootTask{
     refreshProject(project:IBootGuideProjectInfo){
 
 
-         
+         if(project.projectConfig.flagEnablePro){
+            BootSuperSync.Instance.start(project);
+         }
 
-        BootSuperSync.Instance.start(project);
+        
 
         if(project.projectConfig.flagEnableMpass){
 
             BootSuperMpass.Instance.start(project);
+        }
+
+
+        if(project.projectConfig.flagEnableReactNative){
+
+            BootSuperReact.Instance.start(project);
         }
 
 

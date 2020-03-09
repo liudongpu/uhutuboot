@@ -38,9 +38,12 @@ export class BootJobScan extends BootRootTask{
 
                 let oProjectConfig:IBootGuideProjectConfig={
 
-                    flagEnableMpass:false
+                    flagEnableMpass:false,
+                    flagEnableReactNative:false,
+                    flagEnablePro:false
                 };
 
+                oProjectConfig=Object.assign(oProjectConfig,JSON.parse(BootUtilIo.Instance.readFile(sPath)));
 
                 let oProjectInfo:IBootGuideProjectInfo={
                     configFilePath:sPath,

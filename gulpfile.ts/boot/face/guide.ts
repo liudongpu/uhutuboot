@@ -27,6 +27,17 @@ export interface IBootGuideProjectConfig{
      * 是否启用mpass平台
      */
     flagEnableMpass:boolean
+
+
+    /**
+     * 使用启用prouhutu
+     */
+    flagEnablePro:boolean
+
+    /**
+     * 定义是否启动ReactNative
+     */
+    flagEnableReactNative:boolean
 }
 
 
