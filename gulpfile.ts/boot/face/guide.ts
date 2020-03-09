@@ -38,6 +38,10 @@ export interface IBootGuideProjectConfig{
      * 定义是否启动ReactNative
      */
     flagEnableReactNative:boolean
+
+
+
+    projectName:string
 }
 
 

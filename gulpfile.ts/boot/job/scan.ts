@@ -40,7 +40,8 @@ export class BootJobScan extends BootRootTask{
 
                     flagEnableMpass:false,
                     flagEnableReactNative:false,
-                    flagEnablePro:false
+                    flagEnablePro:false,
+                    projectName:""
                 };
 
                 oProjectConfig=Object.assign(oProjectConfig,JSON.parse(BootUtilIo.Instance.readFile(sPath)));

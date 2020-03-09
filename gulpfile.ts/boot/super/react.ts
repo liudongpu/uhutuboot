@@ -18,10 +18,20 @@ export class BootSuperReact{
 
 
         this.installIos(project);
+ 
          
 
 
     }
+
+
+
+    private installAndroid(project:IBootGuideProjectInfo){
+        
+    }
+
+
+     
 
 
 
@@ -32,28 +42,7 @@ export class BootSuperReact{
 
         this.logger.debug("installIos",oIosProject);
 
-        /*
-        BootHelperFile.Instance.fileContentProcess(sPodFile,"#","source",["source \"https://github.com/CocoaPods/Specs.git\" "],"platform.*?:ios.*?$")
-
-         
-
-        if(BootUtilIo.Instance.readFile(sPodFile).indexOf("mPaaS_baseline")===-1){
-            
-
-
-
-            BootHelperFile.Instance.fileContentProcess(sPodFile,"#","mpass",['  mPaaS_pod "mPaaS_TinyApp"'],"use_native_modules\!$")
-
-            BootUtilSpawn.Instance.spawnSync("pod",["mpaas","init"],{cwd:sPathIos});
-            let sContent=BootUtilIo.Instance.readFile(sPodFile);
-            sContent=sContent.replace("mPaaS_baseline 'x.x.x'","mPaaS_baseline '10.1.60'");
-            BootUtilIo.Instance.writeFile(sPodFile,sContent);
-            BootUtilSpawn.Instance.spawnSync("pod",["install"],{cwd:sPathIos});
-
-
-        }
-        */
-
+        
         let sPodInfo=`
         pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
         pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
@@ -95,6 +84,10 @@ export class BootSuperReact{
 
 
         BootHelperIos.Instance.podInstall(oIosProject);
+
+
+
+        BootHelperIos.Instance.updatePlist(oIosProject,"UIViewControllerBasedStatusBarAppearance",false);
 
     }
 

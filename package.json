@@ -20,7 +20,10 @@
     "url": "https://github.com/liudongpu/uhutuboot/issues"
   },
   "homepage": "https://github.com/liudongpu/uhutuboot#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@types/plist": "^3.0.2",
+    "plist": "^3.0.1"
+  },
   "devDependencies": {
     "@types/gulp": "^4.0.6",
     "gulp": "^4.0.2",
