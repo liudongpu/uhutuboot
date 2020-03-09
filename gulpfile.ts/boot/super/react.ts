@@ -5,6 +5,7 @@ import { BootUtilString } from "../utils/string";
 import { BootHelperFile } from "../helpers/file";
 import { BootUtilSpawn } from "../utils/spawn";
 import { BootHelperIos } from "../helpers/ios";
+import { BootHelperAndroid } from "../helpers/android";
 
 
 export class BootSuperReact{
@@ -19,6 +20,7 @@ export class BootSuperReact{
 
         this.installIos(project);
  
+        this.installAndroid(project);
          
 
 
@@ -27,6 +29,18 @@ export class BootSuperReact{
 
 
     private installAndroid(project:IBootGuideProjectInfo){
+
+        let oAndroidProject=BootHelperAndroid.Instance.upAndroidProject(project);
+        this.logger.debug("installAndroid",oAndroidProject);
+
+
+BootHelperFile.Instance.fileContentProcess(oAndroidProject.appGradle,"//","rn_imptool",['      implementation "com.facebook.react:react-native:+"'],"dependencies\\s\\{$")
+
+
+let sMavenSource='maven {url "$rootDir/../node_modules/react-native/android"}';
+
+BootHelperFile.Instance.fileContentProcess(oAndroidProject.androidGradle,"//","rn_url",[sMavenSource],"allprojects\\s+\\{\\n.*?repositories\\s+\\{")
+
         
     }
 
