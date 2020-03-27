@@ -1,7 +1,26 @@
 export interface IBootGuideConfig{
+
+    /**
+     * 执行命令根目录
+     */
     bootCwd:string
+    /**
+     * 要扫描的项目路径
+     */
     bootProjects:IBootGuideProjectInfo[]
+    /**
+     * 配置文件路径
+     */
     bootProjectConfigFile:string
+
+    /**
+     * 基准项目仓库地址
+     */
+    sourceGit:string
+    /**
+     * 基准项目目录
+     */
+    sourceDir:string
 }
 
 
