@@ -23,7 +23,7 @@
   "dependencies": {
     "gulp": "^4.0.2",
     "log4js": "^6.1.2",
-    "plist": "^3.0.1"
+    "plist": "^3.0.6"
   },
   "devDependencies": {
     "@types/gulp": "^4.0.6",
